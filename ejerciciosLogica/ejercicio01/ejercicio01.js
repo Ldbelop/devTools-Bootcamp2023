@@ -16,6 +16,7 @@ function next_pal(){
             number++;
         }
     }
+    document.querySelector("div").style.display = "flex";
     document.getElementById("numberBefore").innerHTML = "";
     document.getElementById("numberAfter").innerHTML = "";
     document.getElementById("numberBefore").append(numberBefore.toString());
