@@ -17,16 +17,13 @@ const createPhoneNumber = (number) => {
 const checkValidityOfArray = (number) => {
     let newArray = number.toString().split("")
     let helperArray = newArray.map(element => {
-        debugger
         return parseInt(element);
     });
     newArray = helperArray;
     if(newArray.length == 10){
-        console.log("im In")
         const checkedArray = newArray.filter(number => {
             return number >= 0
         });
-        console.log(checkedArray, newArray)
         if(checkedArray.length == newArray.length){
             return newArray
         } else{
@@ -36,4 +33,30 @@ const checkValidityOfArray = (number) => {
     }
 }
 
+const createPhoneNumberWithArray = (array) => {
+    console.log(array.length)
+    if(array.length == 10){
+        let isThereNegative = false;
+        array.forEach(number => {
+            if(number < 0){
+                console.log(number)
+                isThereNegative = true;
+            }
+        })
+        if(isThereNegative == false){
+            array.splice(0,0,'(')
+            array.splice(4,0,')', ' ')
+            array.splice(9,0,'-')
+            array.forEach(element => {
+                element.toString()
+            })
+            array.join("")
+            return array.join("")
+        } else{
+            return "Algún número no es positivo, revisa de nuevo"
+        }   
+    }
+}
+
 console.log(createPhoneNumber(3195055058))
+console.log(createPhoneNumberWithArray([3,1,9,5,0,5,5,0,5,8]))
